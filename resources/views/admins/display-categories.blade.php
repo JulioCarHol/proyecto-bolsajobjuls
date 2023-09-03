@@ -20,9 +20,11 @@
                             <p> {!! \Session::get('delete') !!} </p>
                         </div>
                     @endif
+                        <div class="d-flex justify-content-sm-between">
                     <h5 class="card-title mb-4 d-inline">Categorias</h5>
                     <a href=" {{ route('create.categories') }}" class="btn btn-primary mb-4 text-center float-right">Crear
                         Categoria</a>
+                        </div>
                     <table class="table">
                         <thead>
                         <tr>

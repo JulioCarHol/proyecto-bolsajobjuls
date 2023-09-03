@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 text-center">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Trabajos </h5>
@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 text-center">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Categorias</h5>
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 text-center">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Administradores</h5>
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 text-center">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Aplicaciones</h5>

@@ -43,7 +43,7 @@
                                 <input name="titulo_trabajo" type="text" class="form-control form-control-lg">
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                <select name="region_trabajo" class="selectpicker" data-style="btn-white btn-lg" data-width="100%"
+                                <select name="region_trabajo" class="form-select form-select-lg mb-3" data-style="btn-white btn-lg" data-width="100%"
                                         data-live-search="true" title="Departamentos">
                                     <option value="Amazonas">Amazonas</option>
                                     <option value="Antioquia">Antioquia</option>
@@ -79,7 +79,7 @@
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                                <select name="tipo_trabajo" class="selectpicker" data-style="btn-white btn-lg" data-width="100%"
+                                <select name="tipo_trabajo" class="form-select form-select-lg mb-3" data-style="btn-white btn-lg" data-width="100%"
                                         data-live-search="true" title="Tipo de Jornada">
                                     <option> Tiempo Completo </option>
                                     <option> Medio Tiempo </option>

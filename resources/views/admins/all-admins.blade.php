@@ -10,8 +10,10 @@
                             <p> {!! \Session::get('create') !!} </p>
                         </div>
                     @endif
+                    <div class="d-flex justify-content-sm-between">
                     <h5 class="card-title mb-4 d-inline">Administradores</h5>
                     <a href="{{ route('create.admins')}}" class="btn btn-primary mb-4 text-center float-right">Crear nuevo administrador</a>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>

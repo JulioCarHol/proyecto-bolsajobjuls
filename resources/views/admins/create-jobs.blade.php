@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="row">
+<div class="row w-50 justify-content-center d-flex m-auto">
     <div class="col">
         <div class="card">
             <div class="card-body">
@@ -141,9 +141,11 @@
                     @if( $errors -> has('descripcion_trabajo'))
                         <p class="alert alert-secondary">{{ $errors->first('descripcion_trabajo') }}</p>
                     @endif
-                    <div class="form-group">
-                        <label for="descripcion_trabajo">Descripcion</label>
-                        <input name="descripcion_trabajo" type="text" class="form-control" id="descripcion_trabajo" placeholder="">
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                        <label class="text-black" for="descripcion_trabajo">Descripcion</label>
+                        <textarea name="responsabilidades" id="descripcion_trabajo" cols="30" rows="7" class="form-control" placeholder=" "></textarea>
+                        </div>
                     </div>
 
                     @if( $errors -> has('responsabilidades'))
@@ -152,7 +154,7 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="responsabilidades">Responsabilidades</label>
-                            <textarea name="responsabilidades" id="responsabilidades    " cols="30" rows="7" class="form-control" placeholder=" "></textarea>
+                            <textarea name="responsabilidades" id="responsabilidades" cols="30" rows="7" class="form-control" placeholder=" "></textarea>
                         </div>
                     </div>
 

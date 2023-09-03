@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 @section('content')
-<div class="row">
+<div class="row w-50 justify-content-center d-flex m-auto">
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title mb-5 d-inline">Crear Cuenta de Administrador</h5>
+                <h5 class="card-title mb-5 d-inline">Crear cuenta de administrador</h5>
                 <form method="POST" action=" {{ route('store.admins') }} " enctype="multipart/form-data">
 
                     @csrf

@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/quill.snow.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css.map')}}">
+
+
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset ('assets/css/style.css')}}">
@@ -149,6 +152,10 @@
 <script src="{{asset('assets/js/quill.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.bundle.js.map')}}"></script>
+
+
+
 <!--- -->
 </body>
 </html>

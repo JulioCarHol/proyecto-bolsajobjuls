@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Admin Panel</title>
+    <title>Panel de Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/styleadmin.css') }}" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -21,13 +20,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarText">
+            <div class="collapse navbar-collapse m-auto justify-content-center" id="navbarText">
                 @auth('admin')
-                <ul class="navbar-nav side-nav">
+                <ul class="navbar-nav side-nav text-center ">
                     <li class="nav-item">
-                        <a class="nav-link text-white" style="margin-left: 20px;" href="{{ route('admins.dashboard') }}">JobJuls
-                            <span class="sr-only">(current)</span>
-                        </a>
+                        <a class="nav-link text-white" style="margin-left: 20px;" href="{{ route('admins.dashboard') }}">JobJuls</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('view.admins') }}" style="margin-left: 20px;">Administradores</a>
@@ -45,10 +42,8 @@
                 @endauth
                 <ul class="navbar-nav ml-md-auto d-md-flex">
                     @auth('admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href=" {{ route('admins.dashboard') }}">Inicio
-                            <span class="sr-only">(current)</span>
-                        </a>
+                    <li class="nav-item px-6" style="margin-right: 50px ">
+                        <a class="nav-link" href=" {{ route('admins.dashboard') }}">Inicio</a>
                     </li>
 
                     <li class="nav-item dropdown">

@@ -14,25 +14,42 @@ class Job extends Model
 
     protected $table = 'jobs';
     protected $fillable = [
-        "id",
-        "titulo_trabajo",
-        "region_trabajo",
-        "empresa",
-        "tipo_trabajo",
-        "vacante",
-        "experiencia",
-        "salario",
-        "genero",
-        "responsabilidades",
+        'titulo_trabajo',
+        'region_trabajo',
+        'empresa',
+        'tipo_trabajo',
+        'vacante',
+        'experiencia',
+        'salario',
+        'genero',
+        'responsabilidades',
         'descripcion_trabajo',
-        "educacion_experiencia",
-        "otrosbeneficios",
-        "imagen",
-        "categoria",
-        "created_at",
-        "updated_at",
+        'educacion_experiencia',
+        'otrosbeneficios',
+        'imagen',
+        'categoria',
     ];
 
     public $timestamps = true;
+
+    protected $casts = [
+        'vacante' => 'boolean',
+    ];
+
+    // Relaciones
+    public function category()
+    {
+        return $this->belongsTo(\App\Models\Category\Category::class, 'categoria');
+    }
+
+    public function applications()
+    {
+        return $this->hasMany(\App\Models\Job\Application::class);
+    }
+
+    public function savedByUsers()
+    {
+        return $this->hasMany(\App\Models\Job\JobSaved::class);
+    }
 
 }

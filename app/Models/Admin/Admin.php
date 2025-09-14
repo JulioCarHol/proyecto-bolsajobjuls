@@ -24,9 +24,6 @@ class Admin extends Authenticatable
         'adminname',
         'email',
         'password',
-        'created_at',
-        'updated_at',
-
     ];
 
     /**
@@ -43,8 +40,7 @@ class Admin extends Authenticatable
      *
      * @var array<string, string>
      */
-    //protected $casts = [
-    //    'email_verified_at' => 'datetime',
-    //    'password' => 'hashed',
-    //];
+    protected $casts = [
+        'password' => 'hashed',
+    ];
 }

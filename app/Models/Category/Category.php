@@ -14,12 +14,14 @@ class Category extends Model
 
     protected $table = 'categories';
     protected $fillable = [
-        "id",
-        "nombre",
-        "created_at",
-        "updated_at",
-
+        'nombre',
     ];
 
     public $timestamps = true;
+
+    // Relaciones
+    public function jobs()
+    {
+        return $this->hasMany(\App\Models\Job\Job::class, 'categoria');
+    }
 }

@@ -15,21 +15,28 @@ class Application extends Model
     protected $table = 'applications';
 
     protected $fillable = [
-        "id",
-        "cv",
-        "email",
-        "user_id",
-        "job_id",
-        "imagen",
-        "titulo_trabajo",
-        "region_trabajo",
-        "empresa",
-        "tipo_trabajo",
-        "created_at",
-        "updated_at"
-
+        'cv',
+        'email',
+        'user_id',
+        'job_id',
+        'imagen',
+        'titulo_trabajo',
+        'region_trabajo',
+        'empresa',
+        'tipo_trabajo',
     ];
 
     public $timestamps = true;
+
+    // Relaciones
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function job()
+    {
+        return $this->belongsTo(\App\Models\Job\Job::class);
+    }
 
 }

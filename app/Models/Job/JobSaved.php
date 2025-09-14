@@ -15,19 +15,26 @@ class JobSaved extends Model
     protected $table = 'jobsaved';
 
     protected $fillable = [
-        "id",
-        "job_id",
-        "user_id",
-        "imagen",
-        "titulo_trabajo",
-        "region_trabajo",
-        "tipo_trabajo",
-        "empresa",
-        "created_at",
-        "updated_at"
-
+        'job_id',
+        'user_id',
+        'imagen',
+        'titulo_trabajo',
+        'region_trabajo',
+        'tipo_trabajo',
+        'empresa',
     ];
 
     public $timestamps = true;
+
+    // Relaciones
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function job()
+    {
+        return $this->belongsTo(\App\Models\Job\Job::class);
+    }
 
 }

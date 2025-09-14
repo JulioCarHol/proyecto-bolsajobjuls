@@ -52,4 +52,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Relaciones
+    public function applications()
+    {
+        return $this->hasMany(\App\Models\Job\Application::class);
+    }
+
+    public function savedJobs()
+    {
+        return $this->hasMany(\App\Models\Job\JobSaved::class);
+    }
 }

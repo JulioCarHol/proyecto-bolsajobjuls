@@ -16,9 +16,7 @@ class Search extends Model
     protected $table = 'searches';
 
     protected $fillable = [
-        "id",
-        "keyword"
-
+        'keyword'
     ];
 
     public $timestamps = true;

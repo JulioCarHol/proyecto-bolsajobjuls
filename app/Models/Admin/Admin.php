@@ -41,6 +41,46 @@ class Admin extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'password' => 'hashed',
     ];
+
+    /**
+     * Validate the password against the stored password without hashing.
+     *
+     * @param  array  $credentials
+     * @return bool
+     */
+    public function validateCredentials(array $credentials)
+    {
+        return $this->password === $credentials['password'];
+    }
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Get the name of the unique identifier for the user.
+     *
+     * @return string
+     */
+    public function getAuthIdentifierName()
+    {
+        return $this->getKeyName();
+    }
 }

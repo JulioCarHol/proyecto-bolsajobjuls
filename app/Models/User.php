@@ -50,7 +50,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
 
     // Relaciones
@@ -62,5 +61,26 @@ class User extends Authenticatable
     public function savedJobs()
     {
         return $this->hasMany(\App\Models\Job\JobSaved::class);
+    }
+
+    /**
+     * Validate the password against the stored password without hashing.
+     *
+     * @param  array  $credentials
+     * @return bool
+     */
+    public function validateCredentials(array $credentials)
+    {
+        return $this->password === $credentials['password'];
+    }
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password;
     }
 }

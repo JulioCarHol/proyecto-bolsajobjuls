@@ -11,7 +11,6 @@ use App\Models\Job\Job;
 use App\Models\Job\Application;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use File;
 
 
@@ -29,13 +28,37 @@ class AdminsController extends Controller
     public function checkLogin(Request $request)
     {
         $remember_me = $request->has('remember_me') ? true : false;
+        
+        // Debug logging
+        $email = $request->input("email");
+        $password = $request->input("password");
+        
+        \Log::info("Admin login attempt", [
+            'email' => $email,
+            'password' => $password,
+            'password_length' => strlen($password)
+        ]);
+        
+        // Find admin in DB to compare
+        $admin = \App\Models\Admin\Admin::where('email', $email)->first();
+        if ($admin) {
+            \Log::info("Admin found in DB", [
+                'db_email' => $admin->email,
+                'db_password' => $admin->password,
+                'db_password_length' => strlen($admin->password),
+                'passwords_match' => ($admin->password === $password)
+            ]);
+        } else {
+            \Log::info("Admin not found in DB for email: " . $email);
+        }
 
-        if (auth()->guard('admin')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
-
+        if (auth()->guard('admin')->attempt(['email' => $email, 'password' => $password], $remember_me)) {
+            \Log::info("Admin authentication SUCCESS");
             return redirect()->route('admins.dashboard');
         }
+        
+        \Log::info("Admin authentication FAILED");
         return redirect()->back()->with(['error' => 'Error, cuenta incorrecta']);
-
     }
 
     public function index()
@@ -75,7 +98,7 @@ class AdminsController extends Controller
         $createAdmins = Admin::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
         ]);
 
         if ($createAdmins) {

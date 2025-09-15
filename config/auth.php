@@ -66,13 +66,13 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
+            'driver' => 'plaintext',
             'model' => App\Models\User::class,
         ],
 
 
         'admins' => [
-            'driver' => 'eloquent',
+            'driver' => 'plaintext',
             'model' => App\Models\Admin\Admin::class,
         ],
 

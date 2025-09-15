@@ -137,9 +137,13 @@
                                         <div class="text-sm font-medium text-gray-900 dark:text-white">
                                             {{ $admin->name }}
                                         </div>
-                                        @if(isset($admin->adminname))
+                                        @if($admin->adminname)
                                             <div class="text-sm text-gray-500 dark:text-gray-400">
-                                                @{{ $admin->adminname }}
+                                                {{ '@' . $admin->adminname }}
+                                            </div>
+                                        @else
+                                            <div class="text-sm text-gray-500 dark:text-gray-400">
+                                                Administrador del sistema
                                             </div>
                                         @endif
                                     </div>

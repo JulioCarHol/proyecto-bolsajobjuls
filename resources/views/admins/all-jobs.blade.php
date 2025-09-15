@@ -158,7 +158,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-300">
-                                    {{ $job->categoria }}
+                                    {{ $job->category ? $job->category->nombre : 'Sin categoría' }}
                                 </span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">

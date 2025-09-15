@@ -151,12 +151,9 @@ class AdminsController extends Controller
 
     public function allJobs()
     {
-        $jobs = Job::all();
+        $jobs = Job::with('category')->get();
 
         return view('admins.all-jobs', compact('jobs'));
-
-
-
     }
 
     public function createJobs()

@@ -171,7 +171,7 @@
                         class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-200 @error('categoria') border-red-500 ring-2 ring-red-200 @enderror">
                         <option value="">Selecciona una categoría</option>
                         @foreach($categories as $category)
-                            <option value="{{ $category->nombre }}" {{ old('categoria') == $category->nombre ? 'selected' : '' }}>
+                            <option value="{{ $category->id }}" {{ old('categoria') == $category->id ? 'selected' : '' }}>
                                 {{ $category->nombre }}
                             </option>
                         @endforeach
@@ -335,11 +335,11 @@
                         Descripción del Trabajo *
                     </label>
                     <textarea 
-                        name="responsabilidades" 
+                        name="descripcion_trabajo" 
                         id="descripcion_trabajo" 
                         rows="4" 
                         class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-200 @error('descripcion_trabajo') border-red-500 ring-2 ring-red-200 @enderror" 
-                        placeholder="Describe las funciones principales y el objetivo del puesto...">{{ old('responsabilidades') }}</textarea>
+                        placeholder="Describe las funciones principales y el objetivo del puesto...">{{ old('descripcion_trabajo') }}</textarea>
                     @error('descripcion_trabajo')
                         <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror

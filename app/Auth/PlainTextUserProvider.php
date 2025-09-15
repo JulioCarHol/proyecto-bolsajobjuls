@@ -20,13 +20,6 @@ class PlainTextUserProvider extends EloquentUserProvider
         $stored = $user->getAuthPassword();
         
         // Compare directly without hashing
-        // Add some debugging
-        \Log::debug('PlainTextUserProvider validation', [
-            'input_password' => $plain,
-            'stored_password' => $stored,
-            'are_equal' => ($stored === $plain)
-        ]);
-        
         return $stored === $plain;
     }
 }

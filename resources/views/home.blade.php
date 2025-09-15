@@ -32,8 +32,8 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
                     <div class="mb-5 text-center">
-                        <h1 class="text-white font-weight-bold">Bolsa de empleos en el sector TI</h1>
-                        <p>Plataforma sencilla pero con lo necesario para encontrar su empleo de forma segura</p>
+                        <h1 class="text-white font-weight-bold">BOLSA DE EMPLEO</h1>
+                        <p>PLATAFORMA CON LO NECESARIO PARA ENCONTRAR SU EMPLEO DE FORMA SEGURA</p>
                     </div>
 
                     <form method="post" action="{{ route('search.job') }}" class="search-jobs-form">

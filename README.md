@@ -1,66 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Guía de Inicio y Ejecución del Proyecto
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este documento describe los requisitos y los pasos necesarios para instalar, configurar y ejecutar el proyecto de Bolsa de Trabajo en un entorno de desarrollo local.
 
-## About Laravel
+## 1. Requisitos Previos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Asegúrate de tener instalado el siguiente software en tu sistema:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **PHP >= 8.1:** El intérprete de PHP. Puedes verificar tu versión con `php -v`.
+- **Composer:** El gestor de dependencias para PHP. Puedes verificarlo con `composer --version`.
+- **Node.js y npm:** El entorno de ejecución para JavaScript y su gestor de paquetes. Puedes verificar tus versiones con `node -v` y `npm -v`.
+- **Un servidor de base de datos:** MySQL.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 2. Pasos de Instalación
 
-## Learning Laravel
+Sigue estos pasos en orden para configurar el proyecto.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Paso 1: Clonar el Repositorio
+Si aún no lo has hecho, clona el proyecto desde su repositorio Git a tu máquina local.
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd proyecto-bolsajobjuls
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Paso 2: Instalar Dependencias de PHP
+Usa Composer para instalar todas las librerías y paquetes de PHP necesarios para el proyecto.
+```bash
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Paso 3: Instalar Dependencias de JavaScript
+Usa npm para instalar las dependencias del frontend, como Vite, Bootstrap y SASS.
+```bash
+npm install
+```
 
-## Laravel Sponsors
+### Paso 4: Configuración del Entorno
+El proyecto utiliza un archivo `.env` para gestionar las variables de entorno. Copia el archivo de ejemplo para crear tu propia configuración.
+```bash
+cp .env.example .env
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Paso 5: Generar la Clave de la Aplicación
+Laravel requiere una clave de aplicación única, que se utiliza para el cifrado. Genérala con el siguiente comando de Artisan:
+```bash
+php artisan key:generate
+```
 
-### Premium Partners
+### Paso 6: Configurar la Base de Datos
+Abre el archivo `.env` que creaste en el paso 4 y edita las siguientes variables para que coincidan con la configuración de tu servidor de base de datos local.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_de_tu_base_de_datos
+DB_USERNAME=tu_usuario_de_bd
+DB_PASSWORD=tu_contraseña_de_bd
+```
+**Importante:** Asegúrate de que la base de datos (`nombre_de_tu_base_de_datos`) ya exista en tu gestor de bases de datos.
 
-## Contributing
+### Paso 7: Ejecutar las Migraciones
+Una vez configurada la conexión, ejecuta las migraciones para crear todas las tablas necesarias en tu base de datos.
+```bash
+php artisan migrate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 3. Ejecución del Proyecto
 
-## Code of Conduct
+Para ejecutar la aplicación en modo de desarrollo, necesitas iniciar dos procesos en dos terminales separadas.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Terminal 1: Iniciar el Servidor de Vite
+Este proceso compilará los assets del frontend (CSS, JS) y los mantendrá actualizados automáticamente cada vez que hagas un cambio.
+```bash
+npm run dev
+```
 
-## Security Vulnerabilities
+### Terminal 2: Iniciar el Servidor de Laravel
+Este comando iniciará el servidor de desarrollo de Laravel, que servirá la aplicación.
+```bash
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Acceso a la Aplicación
+Una vez que ambos procesos estén en ejecución, podrás acceder a la aplicación en tu navegador web a través de la URL que se muestra en la terminal de `php artisan serve`, que generalmente es:
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**http://127.0.0.1:8000**
